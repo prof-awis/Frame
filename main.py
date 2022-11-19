@@ -1,19 +1,21 @@
 # Import and initialize the pygame library
 import pygame
 
-from sys import exit
+# from sys import exit
 
 pygame.init()
 
-clock = pygame.time.Clock()
+# clock = pygame.time.Clock()
 # Set up the drawing window
 window = pygame.display.set_mode([600, 700])
 
 # images=[]
-frame = pygame.image.load("frames/1.png").convert_alpha()
-font = pygame.font.SysFont('arialblack', 20)
+frame = pygame.image.load("frames/1.png")
 
-#the robot images  and the robot surface
+
+# font = pygame.font.SysFont('arialblack', 20)
+
+# #the robot images  and the robot surface
 images = [
  pygame.image.load("frames/1.png"),
  pygame.image.load("frames/2.png"),
@@ -25,12 +27,13 @@ images = [
  pygame.image.load("frames/8.png"),
  pygame.image.load("frames/9.png")
 ]
-robot_surface = images[0]
 
-#RObot image selection index
-index = 0
-run_animation = True
 
+for image in images:
+    window.blit(image, (0 ,0))
+    pygame.display.flip()
+    
+#    
 # Run until the user asks to quit
 running = True
 while running:
@@ -42,21 +45,8 @@ while running:
 
     # Fill the background with color and add the images
     window.fill((255, 255, 255))
-    window.blit(frame, (0,332))
+    # window.blit(frame, (0, 0))
     
-    # Drawing the buttonn and text written on it
-    button = pygame.draw.rect(window, 'blue', (10, 10, 120, 50), 0, 10)
-    draw_text('Animate', font, 'white', 23, 18)
-    
-    #Get mouse position
-    mouse_pos = pygame.mouse.get_pos()
-    
-    #Check for collison of mouse with button
-    #if button.collidepoint(mouse_pos)
-    for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONUP and button.collidepoint(event.pos):
-            #run_animation = TRUE
-            print('animation true')
 
 # Done! Time to quit.
 pygame.quit()
