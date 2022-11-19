@@ -14,6 +14,7 @@ window = pygame.display.set_mode([600, 700])
 frame = pygame.image.load("frames/1.png")
 
  #the robot images  and the robot surface
+
 images = [
  pygame.image.load("frames/1.png"),
  pygame.image.load("frames/2.png"),
@@ -25,8 +26,17 @@ images = [
  pygame.image.load("frames/8.png"),
  pygame.image.load("frames/9.png")
 ]
-
-            
+images2 = [
+ pygame.image.load("frames/8.png"),
+#  pygame.image.load("frames/9.png"),
+ pygame.image.load("frames/7.png"),
+ pygame.image.load("frames/6.png"),
+ pygame.image.load("frames/5.png"),
+ pygame.image.load("frames/4.png"),
+ pygame.image.load("frames/3.png"),
+ pygame.image.load("frames/2.png"),
+ pygame.image.load("frames/1.png")
+]           
 # Run until the user asks to quit
 running = True
 while running:
@@ -40,7 +50,16 @@ while running:
         
     for image in images:
         # pygame.image.load(image)
-        time.sleep(0.1)
+        time.sleep(0.3)
+        window.blit(image, (0 ,0))
+        pygame.display.flip()
+        pygame.display.update()
+        #overidding the image with a black background
+        window.fill((0, 0, 0))
+        
+    for image in images2:
+        # pygame.image.load(image)
+        time.sleep(0.3)
         window.blit(image, (0 ,0))
         pygame.display.flip()
         pygame.display.update()
@@ -48,7 +67,7 @@ while running:
         window.fill((0, 0, 0))
         
     
-        
+  
 
     # Fill the background with color and add the images
     # window.fill((255, 255, 255))
