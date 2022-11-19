@@ -7,10 +7,10 @@ pygame.init()
 
 clock = pygame.time.Clock()
 # Set up the drawing window
-screen = pygame.display.set_mode([600, 700])
+window = pygame.display.set_mode([600, 700])
 
 # images=[]
-frame = pygame.image.load("frames/1.png").convert
+frame = pygame.image.load("frames/1.png").convert_alpha()
 font = pygame.font.SysFont('arialblack', 20)
 
 #the robot images  and the robot surface
@@ -41,8 +41,8 @@ while running:
             running = False
 
     # Fill the background with color and add the images
-    screen.fill((255, 255, 255))
-    screen.blit(images, (0,332))
+    window.fill((255, 255, 255))
+    window.blit(frame, (0,332))
     
     # Drawing the buttonn and text written on it
     button = pygame.draw.rect(window, 'blue', (10, 10, 120, 50), 0, 10)
