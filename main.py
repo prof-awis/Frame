@@ -1,21 +1,18 @@
 # Import and initialize the pygame library
 import pygame
 
-# from sys import exit
-
 pygame.init()
 
-# clock = pygame.time.Clock()
+#set interval clock
+clock = pygame.time.Clock()
+
 # Set up the drawing window
 window = pygame.display.set_mode([600, 700])
 
 # images=[]
 frame = pygame.image.load("frames/1.png")
 
-
-# font = pygame.font.SysFont('arialblack', 20)
-
-# #the robot images  and the robot surface
+ #the robot images  and the robot surface
 images = [
  pygame.image.load("frames/1.png"),
  pygame.image.load("frames/2.png"),
@@ -29,10 +26,6 @@ images = [
 ]
 
 
-for image in images:
-    window.blit(image, (0 ,0))
-    pygame.display.flip()
-    
 #    
 # Run until the user asks to quit
 running = True
@@ -42,6 +35,15 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+            
+    
+    for image in images:
+        window.blit(image, (0 ,0))
+        pygame.display.flip()
+        
+    pygame.display.update()
+    clock.tick(60)
+        
 
     # Fill the background with color and add the images
     window.fill((255, 255, 255))
