@@ -1,5 +1,6 @@
 # Import and initialize the pygame library
 import pygame
+import time
 
 pygame.init()
 
@@ -25,8 +26,7 @@ images = [
  pygame.image.load("frames/9.png")
 ]
 
-
-#    
+            
 # Run until the user asks to quit
 running = True
 while running:
@@ -36,17 +36,22 @@ while running:
         if event.type == pygame.QUIT:
             running = False
             
-    
+  
+        
     for image in images:
+        # pygame.image.load(image)
+        time.sleep(0.1)
         window.blit(image, (0 ,0))
         pygame.display.flip()
+        pygame.display.update()
+        #overidding the image with a black background
+        window.fill((0, 0, 0))
         
-    pygame.display.update()
-    clock.tick(60)
+    
         
 
     # Fill the background with color and add the images
-    window.fill((255, 255, 255))
+    # window.fill((255, 255, 255))
     # window.blit(frame, (0, 0))
     
 
