@@ -10,8 +10,9 @@ clock = pygame.time.Clock()
 # Set up the drawing window
 window = pygame.display.set_mode([600, 700])
 
-# images=[]
-frame = pygame.image.load("frames/1.png")
+# frame = pygame.image.load("frames/1.png").convert_alpha()
+# small_frame = pygame.transform.scale(frame, (200, 500))
+
 
  #the robot images  and the robot surface
 
@@ -27,8 +28,8 @@ images = [
  pygame.image.load("frames/9.png")
 ]
 images2 = [
+ pygame.image.load("frames/9.png"),
  pygame.image.load("frames/8.png"),
-#  pygame.image.load("frames/9.png"),
  pygame.image.load("frames/7.png"),
  pygame.image.load("frames/6.png"),
  pygame.image.load("frames/5.png"),
@@ -36,7 +37,9 @@ images2 = [
  pygame.image.load("frames/3.png"),
  pygame.image.load("frames/2.png"),
  pygame.image.load("frames/1.png")
-]           
+]    
+
+       
 # Run until the user asks to quit
 running = True
 while running:
@@ -49,30 +52,27 @@ while running:
   
         
     for image in images:
+        # scaling image to whatever size you'd like
+        image = pygame.transform.scale(image, (300, 600))
         # pygame.image.load(image)
         time.sleep(0.3)
-        window.blit(image, (0 ,0))
+        window.blit(image, (150 ,50))
         pygame.display.flip()
         pygame.display.update()
         #overidding the image with a black background
         window.fill((0, 0, 0))
         
     for image in images2:
+        # scaling image to whatever size you'd like
+        image = pygame.transform.scale(image, (300, 600))
         # pygame.image.load(image)
         time.sleep(0.3)
-        window.blit(image, (0 ,0))
+        window.blit(image, (150 ,50))
         pygame.display.flip()
         pygame.display.update()
         #overidding the image with a black background
         window.fill((0, 0, 0))
-        
-    
-  
-
-    # Fill the background with color and add the images
-    # window.fill((255, 255, 255))
-    # window.blit(frame, (0, 0))
-    
+            
 
 # Done! Time to quit.
 pygame.quit()
