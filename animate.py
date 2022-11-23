@@ -9,7 +9,7 @@ import time
 pygame.init()
 
 # screen resolution
-res = (720,720)
+res = (600,700)
 
 # opens up a window
 screen = pygame.display.set_mode(res)
