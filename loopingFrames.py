@@ -4,7 +4,7 @@ import time
 
 def loopingFrames():
     #set interval clock
-    clock = pygame.time.Clock()
+    # clock = pygame.time.Clock()
 
     # Set up the drawing window
     window = pygame.display.set_mode([600, 700])

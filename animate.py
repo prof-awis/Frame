@@ -56,7 +56,7 @@ def	 animate():
 												
 												
 		# fills the screen with a color
-		screen.fill((60,25,60))
+		screen.fill((255,255,0))
 		
 		# stores the (x,y) coordinates into
 		# the variable as a tuple
