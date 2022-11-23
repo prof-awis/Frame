@@ -1,7 +1,5 @@
 import pygame
 
-# from main import *
-
 
 # initializing the constructor
 pygame.init()

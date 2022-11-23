@@ -8,7 +8,7 @@ from loopingFrames import *
 pygame.init()
 
 animate()
-loopingFrames()
+# loopingFrames()
 
 # Done! Time to quit.
 pygame.quit()
