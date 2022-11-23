@@ -2,6 +2,8 @@
 import pygame
 import time
 
+from animate import *
+
 pygame.init()
 
 #set interval clock
