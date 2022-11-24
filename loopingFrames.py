@@ -4,7 +4,7 @@ import time
 
 def loopingFrames():
     #set interval clock
-    # clock = pygame.time.Clock()
+    clock = pygame.time.Clock()
 
     # Set up the drawing window
     window = pygame.display.set_mode([600, 700])
@@ -54,7 +54,7 @@ def loopingFrames():
             # scaling image to whatever size you'd like
             image = pygame.transform.scale(image, (300, 600))
             # pygame.image.load(image)
-            time.sleep(0.3)
+            clock.tick(7)
             window.blit(image, (150 ,50))
             pygame.display.flip()
             pygame.display.update()
@@ -65,7 +65,7 @@ def loopingFrames():
             # scaling image to whatever size you'd like
             image = pygame.transform.scale(image, (300, 600))
             # pygame.image.load(image)
-            time.sleep(0.3)
+            clock.tick(7)
             window.blit(image, (150 ,50))
             pygame.display.flip()
             pygame.display.update()
