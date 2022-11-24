@@ -9,3 +9,4 @@ While the window was still running:
 - The images kept on looping 
 - The previous image frame is overrided by a black background.
 - For each image it was scaled down since the png files were big.
+
