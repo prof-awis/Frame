@@ -1,7 +1,16 @@
 import pygame
 
+from loopingFrames import *
 pygame.init()
 screen = pygame.display.set_mode((600, 700))
+
+#loads the first image on the window
+frame = pygame.image.load("frames/1.png")
+image = pygame.transform.scale(frame, (300, 600))
+screen.blit(image, (150 ,50))
+pygame.display.flip()
+pygame.display.update()
+
 clock = pygame.time.Clock()
 font = pygame.font.SysFont("Arial", 20)
 
@@ -35,7 +44,10 @@ class Button:
         if event.type == pygame.MOUSEBUTTONDOWN:
             if pygame.mouse.get_pressed()[0]:
                 if self.rect.collidepoint(x, y):
+                    loopingFrames()
                     self.change_text(self.feedback, bg="red")
+                    
+                    
 
 
 def mainloop():
@@ -51,10 +63,10 @@ def mainloop():
 
 
 button1 = Button(
-    "Click here",
-    (100, 100),
+    "Animate",
+    (450, 600),
     font=30,
     bg="navy",
-    feedback="You clicked me")
+    feedback="Quit Game")
 
 mainloop() 

@@ -56,7 +56,7 @@ while True:
 			
 			#if the mouse is clicked on the
 			# button the game is terminated
-			if 500 <= mouse[0] <= 400 and 500 <= mouse[1] <= 400:
+			if width/2 <= mouse[0] <= width/2+140 and height/2 <= mouse[1] <= height/2+40:
 				pygame.quit()
 		
 											
@@ -69,11 +69,11 @@ while True:
 	
 	# if mouse is hovered on a button it
 	# changes to lighter shade
-	if 500 <= mouse[0] <= 400 and 500 <= mouse[1] <= 400:
-		pygame.draw.rect(screen,color_light,[500,400,140,40])
+	if 140 <= mouse[0] <= 140 and 40 <= mouse[1] <= 40:
+		pygame.draw.rect(screen,color_light,[400,400])
 		
 	else:
-		pygame.draw.rect(screen,color_dark,[500,400,140,40])
+		pygame.draw.rect(screen,color_dark,[400,400])
 	
 	# superimposing the text onto our button
 	screen.blit(text , (width/2+25,height/2+10))
