@@ -1,7 +1,7 @@
 import pygame
 
 pygame.init()
-screen = pygame.display.set_mode((500, 600))
+screen = pygame.display.set_mode((600, 700))
 clock = pygame.time.Clock()
 font = pygame.font.SysFont("Arial", 20)
 
@@ -9,7 +9,7 @@ font = pygame.font.SysFont("Arial", 20)
 class Button:
     """Create a button, then blit the surface in the while loop"""
 
-    def __init__(self, text,  pos, font, bg="black", feedback=""):
+    def __init__(self, text,  pos, font, bg="yellow", feedback=""):
         self.x, self.y = pos
         self.font = pygame.font.SysFont("Arial", font)
         if feedback == "":
@@ -19,7 +19,7 @@ class Button:
         self.change_text(text, bg)
 
     def change_text(self, text, bg="black"):
-        """Change the text whe you click"""
+        """Change the text when you click"""
         self.text = self.font.render(text, 1, pygame.Color("White"))
         self.size = self.text.get_size()
         self.surface = pygame.Surface(self.size)

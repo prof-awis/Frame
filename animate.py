@@ -13,6 +13,14 @@ def	 animate():
 
 	# opens up a window
 	screen = pygame.display.set_mode(res)
+ 
+	#loads the first image on the window
+	frame = pygame.image.load("frames/1.png")
+	image = pygame.transform.scale(frame, (300, 600))
+	screen.blit(image, (150 ,50))
+	pygame.display.flip()
+	pygame.display.update()
+
 
 	# white color
 	color = (255,255,255)
@@ -56,7 +64,7 @@ def	 animate():
 												
 												
 		# fills the screen with a color
-		screen.fill((255,255,0))
+		# screen.fill((255,255,0))
 		
 		# stores the (x,y) coordinates into
 		# the variable as a tuple
