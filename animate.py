@@ -21,65 +21,63 @@ def	 animate():
 	pygame.display.flip()
 	pygame.display.update()
 
+	clock = pygame.time.Clock()
+	font = pygame.font.SysFont("Arial", 20)
 
-	# white color
-	color = (255,255,255)
 
-	# light shade of the button
-	color_light = (170,170,170)
+	class Button:
+		"""Create a button, then blit the surface in the while loop"""
 
-	# dark shade of the button
-	color_dark = (100,100,100)
+		def __init__(self, text,  pos, font, bg="yellow", feedback=""):
+			self.x, self.y = pos
+			self.font = pygame.font.SysFont("Arial", font)
+			if feedback == "":
+				self.feedback = "text"
+			else:
+				self.feedback = feedback
+			self.change_text(text, bg)
 
-	# stores the width of the
-	# screen into a variable
-	width = screen.get_width()
+		def change_text(self, text, bg="black"):
+			"""Change the text when you click"""
+			self.text = self.font.render(text, 1, pygame.Color("White"))
+			self.size = self.text.get_size()
+			self.surface = pygame.Surface(self.size)
+			self.surface.fill(bg)
+			self.surface.blit(self.text, (0, 0))
+			self.rect = pygame.Rect(self.x, self.y, self.size[0], self.size[1])
 
-	# stores the height of the
-	# screen into a variable
-	height = screen.get_height()
+		def show(self):
+			screen.blit(button1.surface, (self.x, self.y))
 
-	# defining a font
-	smallfont = pygame.font.SysFont('Corbel',35)
+		def click(self, event):
+			x, y = pygame.mouse.get_pos()
+			if event.type == pygame.MOUSEBUTTONDOWN:
+				if pygame.mouse.get_pressed()[0]:
+					if self.rect.collidepoint(x, y):
+						loopingFrames()
+						self.change_text(self.feedback, bg="red")
+						
+						
 
-	# rendering a text written in
-	# this font
-	text = smallfont.render('Animate' , True , color)
 
-	while True:
-		
-		for ev in pygame.event.get():
-			
-			if ev.type == pygame.QUIT:
-				pygame.quit()
-				
-			#checks if a mouse is clicked
-			if ev.type == pygame.MOUSEBUTTONDOWN:
-				
-				#if the mouse is clicked on the
-				# button the game is terminated
-				if width/2 <= mouse[0] <= width/2+140 and height/2 <= mouse[1] <= height/2+40:
-					# Calling the loopingFrames function
-					loopingFrames()
-												
-												
-		# fills the screen with a color
-		# screen.fill((255,255,0))
-		
-		# stores the (x,y) coordinates into
-		# the variable as a tuple
-		mouse = pygame.mouse.get_pos()
-		
-		# if mouse is hovered on a button it
-		# changes to lighter shade
-		if width/2 <= mouse[0] <= width/2+140 and height/2 <= mouse[1] <= height/2+40:
-			pygame.draw.rect(screen,color_light,[width/2,height/2,140,40])
-			
-		else:
-			pygame.draw.rect(screen,color_dark,[width/2,height/2,140,40])
-		
-		# superimposing the text onto our button
-		screen.blit(text , (width/2+25,height/2+10))
-		
-		# updates the frames of the game
-		pygame.display.update()
+	def mainloop():
+		""" The infinite loop where things happen """
+		while True:
+			for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					pygame.quit()
+				button1.click(event)
+			button1.show()
+			clock.tick(30)
+			pygame.display.update()
+
+
+	button1 = Button(
+		"Animate",
+		(450, 600),
+		font=30,
+		bg="navy",
+		feedback="Quit Game")
+
+	mainloop() 
+	
