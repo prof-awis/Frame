@@ -55,7 +55,8 @@ def	 animate():
 				if pygame.mouse.get_pressed()[0]:
 					if self.rect.collidepoint(x, y):
 						loopingFrames()
-						self.change_text(self.feedback, bg="red")
+				self.change_text(self.feedback, bg="red")
+							
 						
 						
 
