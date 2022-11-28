@@ -1,5 +1,5 @@
 import pygame
-import time
+# import time
 
 from animate import *
 from loopingFrames import *
@@ -7,7 +7,7 @@ from loopingFrames import *
 pygame.init()
 
 animate()
-loopingFrames()
+# loopingFrames()
 
 # Done! Time to quit.
-pygame.quit()
+# pygame.quit()

@@ -54,12 +54,14 @@ def	 animate():
 			if event.type == pygame.MOUSEBUTTONDOWN:
 				if pygame.mouse.get_pressed()[0]:
 					if self.rect.collidepoint(x, y):
-						loopingFrames()
-				self.change_text(self.feedback, bg="red")
-							
-						
-						
-
+						if loopingFrames():
+							if self.change_text(self.feedback, bg="red"):
+								if pygame.mouse.get_pressed()[1]:
+									if self.rect.collidepoint(x, y):
+										pygame.quit()
+										
+										self.change_text(self.feedback, bg="red")
+									
 
 	def mainloop():
 		""" The infinite loop where things happen """
@@ -81,4 +83,3 @@ def	 animate():
 		feedback="Quit Game")
 
 	mainloop() 
-	
