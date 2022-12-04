@@ -22,9 +22,9 @@ def loopingFrames():
     pygame.image.load("frames/4.png"),
     pygame.image.load("frames/5.png"),
     pygame.image.load("frames/6.png"),
-    #pygame.image.load("frames/7.png"),
-    #pygame.image.load("frames/8.png"),
-    #pygame.image.load("frames/9.png")
+    pygame.image.load("frames/7.png"),
+    pygame.image.load("frames/8.png"),
+    pygame.image.load("frames/9.png")
     ]
     images2 = [
     pygame.image.load("frames/9.png"),

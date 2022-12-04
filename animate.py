@@ -22,7 +22,7 @@ def	 animate():
 	pygame.display.update()
 
 	clock = pygame.time.Clock()
-	font = pygame.font.SysFont("Arial", 20)
+	# font = pygame.font.SysFont("Arial", 20)
 
 
 	class Button:
@@ -54,13 +54,8 @@ def	 animate():
 			if event.type == pygame.MOUSEBUTTONDOWN:
 				if pygame.mouse.get_pressed()[0]:
 					if self.rect.collidepoint(x, y):
-						if loopingFrames():
-							if self.change_text(self.feedback, bg="red"):
-								if pygame.mouse.get_pressed()[1]:
-									if self.rect.collidepoint(x, y):
-										pygame.quit()
-										
-										self.change_text(self.feedback, bg="red")
+						loopingFrames()
+						self.change_text(self.feedback, bg="red")
 									
 
 	def mainloop():
